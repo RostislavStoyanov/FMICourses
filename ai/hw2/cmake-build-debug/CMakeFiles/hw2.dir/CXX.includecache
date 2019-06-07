@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Rostislav/Documents/All Fmi/@FMIYEAR3/ai_hws/hw2/Item.h
+iterator
+-
+iostream
+-
+sstream
+-
+string
+-
+vector
+-
+
+C:/Users/Rostislav/Documents/All Fmi/@FMIYEAR3/ai_hws/hw2/KMeans.cpp
+KMeans.h
+C:/Users/Rostislav/Documents/All Fmi/@FMIYEAR3/ai_hws/hw2/KMeans.h
+
+C:/Users/Rostislav/Documents/All Fmi/@FMIYEAR3/ai_hws/hw2/KMeans.h
+vector
+-
+random
+-
+algorithm
+-
+functional
+-
+time.h
+-
+Item.h
+C:/Users/Rostislav/Documents/All Fmi/@FMIYEAR3/ai_hws/hw2/Item.h
+

@@ -1,0 +1,48 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Rostislav/Documents/All Fmi/@FMIYEAR3/ai_hws/hw1/Assignment.h
+unordered_map
+-
+stdio.h
+-
+
+C:/Users/Rostislav/Documents/All Fmi/@FMIYEAR3/ai_hws/hw1/Constraints.h
+vector
+-
+Assignment.h
+C:/Users/Rostislav/Documents/All Fmi/@FMIYEAR3/ai_hws/hw1/Assignment.h
+Domain.h
+C:/Users/Rostislav/Documents/All Fmi/@FMIYEAR3/ai_hws/hw1/Domain.h
+unordered_map
+-
+cmath
+-
+
+C:/Users/Rostislav/Documents/All Fmi/@FMIYEAR3/ai_hws/hw1/Domain.h
+set
+-
+list
+-
+
+C:/Users/Rostislav/Documents/All Fmi/@FMIYEAR3/ai_hws/hw1/State.cpp
+limits
+-
+State.h
+C:/Users/Rostislav/Documents/All Fmi/@FMIYEAR3/ai_hws/hw1/State.h
+
+C:/Users/Rostislav/Documents/All Fmi/@FMIYEAR3/ai_hws/hw1/State.h
+Constraints.h
+C:/Users/Rostislav/Documents/All Fmi/@FMIYEAR3/ai_hws/hw1/Constraints.h
+Assignment.h
+C:/Users/Rostislav/Documents/All Fmi/@FMIYEAR3/ai_hws/hw1/Assignment.h
+Domain.h
+C:/Users/Rostislav/Documents/All Fmi/@FMIYEAR3/ai_hws/hw1/Domain.h
+vector
+-
+
