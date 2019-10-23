@@ -1,0 +1,2 @@
+# NumericMethodsForDifferentialEquations
+Wolfram mathematica pracitce code
