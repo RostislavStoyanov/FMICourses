@@ -1,2 +1,3 @@
 # NumericMethodsForDifferentialEquations
-Wolfram mathematica practice code
+
+### Contains code for the numeric methods for differential equations course @FMI.
