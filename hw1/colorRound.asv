@@ -1,0 +1,9 @@
+function colorIfNotColored(x,y,color,colorAround,M)
+    if(M(x,y) ~= color && M(x,y) ~= colorAround)
+        M(x,y) = colorAround;
+    end
+end
+
+function colorRound(x,y,color,colorAround,M)
+    colorRound(
+end
