@@ -42,10 +42,10 @@ while steps
        
     if(isReversed)
         M(y,x) = color;
-        M = colorRound(y,x,colorAround,M);
+        M = colorRound(y,x,colorAround,M,MaxX,MaxY);
     else
         M(x,y) = color;
-        M = colorRound(x,y,colorAround,M);
+        M = colorRound(x,y,colorAround,M,MaxX,MaxY);
     end
         
     x = x + incX;

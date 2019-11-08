@@ -1,5 +1,5 @@
-MaxX = 1920;
-MaxY = 1080;
+MaxX = 50;
+MaxY = 45;
 
 M = zeros(MaxX,MaxY);
 Ax = axes;
