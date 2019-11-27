@@ -1,0 +1,14 @@
+[s0,s1,s2,s3] = cubic_spline(XBin',YBin');
+
+
+for i = 1 : (n - 1)
+    currX = round(XBin(i));
+    nextX = round(XBin(i+1));
+    xx = currX : 1 : nextX;
+    repeatCount = size(xx);
+    xi = repmat(XBin(i),1,currPoints);
+     yy = s0(i) + s1(i)*(xx-xi) + ... 
+     s2(i)*(xx-xi).^2 + s3(i)*(xx - xi).^3;
+    rectangle('Curvature',[0 0],'Position',[xx(i)-1,yy(i)-1,1,1],...
+                    'FaceColor',color);
+end
