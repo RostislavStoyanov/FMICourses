@@ -1,0 +1,126 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[bulgarian]{babel}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\hypersetup{
+    colorlinks,
+    linkcolor={blue!55!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\newcommand\Set[2]{\{\,#1\mid#2\,\}}
+
+\begin{document}
+\linespread{1.25}
+\begin{titlepage}
+   \begin{center}
+       \vspace*{1cm}
+
+\LARGE
+       \textbf{Софийски университет „Св. Климент Охридски“\\
+       Факултет по математика и инфоратика\\}
+
+\addvspace{110pt}
+
+	\Huge
+       \textbf{Проект по Числени методи за диференциални уравнения}
+
+ \vspace{0.5cm}
+	\LARGE
+        \textbf{Вариант 5}
+
+
+       \vspace{1.5cm}
+   \end{center}
+    \vfill
+\Large
+       \textbf{Съставил:\\Ростислав Стоянов\\ф-н 45244}
+ 
+    
+ 
+ 
+       \vspace{0.8cm}
+ 
+\end{titlepage}
+
+
+
+\large
+\tableofcontents
+\pagebreak
+
+\section{Условие на задачата}
+
+Дадено ни е уравнението от втори ред:
+$$ u''(x) -q(x)u(x) = f(x), x\in (a,b), $$
+с гранични условия:
+\begin{align*}
+ \alpha_1u(a) + \beta_1\frac{\partial u}{\partial x}(a) = \mu_1, \\
+\alpha_2u(b) + \beta_2\frac{\partial u}{\partial x}(b) = \mu_2.
+\end{align*}
+където $ a = 0,\  b = 1,\  q(x) = 1,\  f(x) = x^4 - 2x^3 -12x^2 +12x,\ \alpha_1 = 0,\ \beta_1 = 1,\\ \alpha_2 = 1,\ \beta_2 = 0,\ \mu_1 = 0 ,\ \mu_2 = -1.$
+
+След заместване на параметрите в условието получаваме следната гранична задача за ОДУ от втори ред:
+\begin{align}
+ u''(x) - u(x) =x^4 - 2x^3 - 12x^2 + 12x&, x\in (0,1),\\
+\frac{\partial u}{\partial x}(0) = 0,&\\ 
+u(1) = -1&.
+\end{align}
+\\
+Решението на задачата трябва да съдържа: 
+\begin{itemize}
+\item{ Диференчна схема с ЛГА О($h^2$),}
+\item { Реализация на намерената диференчна схема използвайки метода\\ на прогонката,}
+\item { Оценка на грешката чрез метода на Рунге с вложени мрежи.}
+\end{itemize}
+
+\pagebreak
+
+\section{Построяване на диференчната схема}
+Въвеждаме следната равномерна мрежа:
+\begin{align*}
+\overline{w_h} &\coloneqq  \Set{x_i  = ih }{h = \frac{1}{N}, i = 0,1\dots,N} ,
+\end {align*}където h е големината на стъпката.
+
+Първо намираме приближението на уравнението(1):
+\begin{align*}
+\frac{y_{i+1} - 2y_i + y_{i-1}}{h^2} - y_i &= {x_i}^4 - 2{x_i}^3 -12{x_i}^2 +12{x_i},
+\end{align*}
+където знаем, че апроксимацията на втората производна е с грешка О($h^2$).\\
+Условието (3) се апроксимира точно : $y_N = -1$.\\
+Остава да намерим приближение на условие (2). За целта ще използваме формула с разлика напред: 
+\begin{align*}
+\frac{y_1 - y_0}{h} &= 0.\\ 
+\end{align*}
+Пресмятаме ЛГА за тази апроксимация:
+\begin{align*}
+\psi_0 &= \frac{u_1 - u_0}{h} - 0 = \frac {1}{h}[u_0 + \frac{h}{1!}{u_0}' + \frac{h^2}{2!}{u_0}'' + O(h^3) -u_0] =\\  &={u_0}' + \frac{h}{2}{u_0}'' + O(h^2) = \frac{h}{2}{u_0}'' + O(h^2) 
+\end{align*}
+Допускаме, че уравнението се удовлетворява и при х = 0, т.е. изпълнено е $ u''(0) -u(0) = f(0) $. Тогава ${u_0}'' = u_0.$ Заместваме и получаваме
+\begin{align*}
+\psi_0 &= \frac{h}{2}{u_0} + O(h^2).
+\end{align*}
+Тогава приближението 
+\begin{align*}
+\frac{y_1 - y_0}{h} - \frac{h}{2}{y_0}  &= 0.\\ 
+\end{align*}
+ще има ЛГА O($h^2$).
+
+Така търсената от нас диференчна схема има вида:
+
+\begin{align*}
+\frac{y_{i+1} - 2y_i + y_{i-1}}{h^2} - y_i = {x_i}^4 - 2{x_i}^3 -12{x_i}^2 +12{x_i},&\\
+\frac{y_1 - y_0}{h} - \frac{h}{2}{y_0}  = 0,&\\
+ y_N = -1&.
+\end {align*}
+
+\section{Метод на прогонката}
+\end{document}
