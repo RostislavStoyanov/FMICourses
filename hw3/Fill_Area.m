@@ -9,7 +9,7 @@ while (~isempty(stack))
     newX = stack(end);
     stack(end) = [];
     
-    if(M(newX, newY) == borderValue)
+    if(M(newX, newY) == borderValue||M(newX,newY) == fillValue)
         continue;    
     end
    
@@ -25,34 +25,43 @@ while (~isempty(stack))
      rightX = rightX + 1;
    end
  
-  if( newY >= 1 && newY <= MaxY && newX > 1 && newX < MaxX) 
+  if( newY >= 1 && newY <= MaxY && newX >= 1 && newX <= MaxX) 
     drawLine;
-   end
-   
-   for nextY = newY - 1 : 2 : newY + 2
-      
-      if (nextY <= MaxY && nextY > 0)
-          p1 = M(leftX, nextY);
-      else
-          p1 = borderValue;      
+  end 
+  
+  oldBPoint = true;
+  for currX = leftX : rightX
+      if(newY+1>MaxX)
+          break
       end
-      for x2 = leftX : rightX
-        
-          if ((x2 + 1 < MaxX) && (nextY <= MaxY) && (nextY > 0))
-            p2 = M(x2 + 1, nextY);
-          else
-            p2 = borderValue;      
-          end            
-          
-          if((p1 ~= borderValue) && (p1 ~= fillValue) && (p2 == borderValue))
-              stack(end + 1) = x2;
-              stack(end + 1) = nextY;          
+      if(M(currX,newY+1)~=borderValue)
+          oldBPoint=true;
+      end
+      if(oldBPoint)
+          oldBPoint=false;
+          if(M(currX,newY+1)~=fillValue)
+              stack(end+1)=currX;
+              stack(end+1)=newY+1;
           end
-          
-          p1 = p2;
-          
+      end
+  end
+      
+      oldBPoint = true;
+  for currX = leftX : rightX
+      if(newY-1<0)
+          break
+      end
+      if(M(currX,newY-1)~=borderValue)
+          oldBPoint=true;
+      end
+      if(oldBPoint)
+          oldBPoint=false;
+          if(M(currX,newY-1)~=fillValue)
+              stack(end+1)=currX;
+              stack(end+1)=newY-1;
+          end
       end
       
-   end
+  end
    
 end

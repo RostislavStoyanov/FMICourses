@@ -12,7 +12,8 @@ fillValue = 2;
 Ax = axes('Position',[0.1,0.1,0.8,0.8],'XLim',[0,MaxX],'YLim',[0,MaxY]);
 
 
-numCircles = 1;
+numCircles = 2;
+i = numCircles;
 
 while(numCircles)
     
@@ -45,16 +46,16 @@ while(numCircles)
     
     hold on;
     numCircles = numCircles - 1;
-    
 end
 
-[x,y] = ginput(1); %fill starting point
+while (1)
+    [x,y] = ginput(1); %fill starting point
 
-x = round(x);
-y = round(y);
+    x = round(x);
+    y = round(y);
 
-Fill_Area;
-
+    Fill_Area;
+end
 
 
 
